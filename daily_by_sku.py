@@ -57,7 +57,7 @@ def aggregate(orders):
 
 def write_report(stats, path):
     with open(path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["sku", "order_date", "orders", "revenue"])
         for (sku, order_date) in sorted(stats):
             day = stats[(sku, order_date)]
